@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, NgZone} from '@angular/core';
+import {connectRouter, shareNgZone} from "@angular-architects/module-federation-tools";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'template-mf-angular';
+
+  constructor(private ngZone: NgZone) {
+    shareNgZone(ngZone);
+  }
+
+  ngOnInit(): void { }
 }
