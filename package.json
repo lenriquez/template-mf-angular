@@ -1,10 +1,12 @@
 {
   "name": "template-mf-angular",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && gzip dist/**/* ",
+    "zip": "node src/scripts/zip_dist.js $npm_package_name ",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
@@ -38,6 +40,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "tar": "^6.1.11",
     "typescript": "~4.3.5"
   }
 }
